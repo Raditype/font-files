@@ -68,7 +68,8 @@
       border-radius: 8px;
       resize: none;
       margin-bottom: 20px;
-      font-size: 24px;
+      font-size: 24pt;
+      line-height: 1.4;
     }
 
     .controls {
@@ -107,14 +108,6 @@
       }
     }
   </style>
-  
-  <!-- Load initial font -->
-  <style id="fontStyles">
-    @font-face {
-      font-family: 'Mangarans';
-      src: url('https://raditype.github.io/font-files/Mangarans.ttf') format('truetype');
-    }
-  </style>
 </head>
 <body>
   <h1>Raditype Font Collection</h1>
@@ -122,7 +115,7 @@
   <div class="font-selector">
     <div class="font-option active" data-font="Mangarans">
       <h3>Mangarans</h3>
-      <p class="font-sample">Sample Text - 123</p>
+      <p class="font-sample">Sample Text - Lorem</p>
     </div>
     <div class="font-option" data-font="FontTwo">
       <h3>Mangarans II</h3>
@@ -147,7 +140,7 @@
   </div>
 
   <div class="font-preview-container">
-    <textarea id="fontPreview" placeholder="Type here to preview the selected font..." style="font-family: 'Mangarans'"></textarea>
+    <textarea id="fontPreview" placeholder="Type here to preview the selected font..."></textarea>
     
     <div class="controls">
       <input type="range" id="fontSize" min="12" max="240" value="24" class="size-slider">
@@ -193,55 +186,66 @@
       }
     ];
 
-    // DOM elements
-    const fontOptions = document.querySelectorAll('.font-option');
-    const fontPreview = document.getElementById('fontPreview');
-    const fontStyles = document.getElementById('fontStyles');
-    const fontSamples = document.querySelectorAll('.font-sample');
-
-    // Load font when selected
-    function loadFont(fontName) {
-      const font = fontConfig.find(f => f.name === fontName);
-      if (!font) return;
-      
-      fontStyles.textContent = `
-        @font-face {
-          font-family: '${font.name}';
-          src: url('${font.url}') format('truetype');
-        }
-      `;
-      
-      // Update preview and samples
-      fontPreview.style.fontFamily = `'${font.name}'`;
-      fontSamples.forEach(sample => {
-        if (sample.parentElement.getAttribute('data-font') === fontName) {
-          sample.style.fontFamily = `'${font.name}'`;
-        }
+    // Load all fonts at once
+    function loadAllFonts() {
+      let fontFaceCSS = '';
+      fontConfig.forEach(font => {
+        fontFaceCSS += `
+          @font-face {
+            font-family: '${font.name}';
+            src: url('${font.url}') format('truetype');
+          }
+        `;
       });
+      
+      const style = document.createElement('style');
+      style.textContent = fontFaceCSS;
+      document.head.appendChild(style);
     }
 
-    // Font selection
-    fontOptions.forEach(option => {
-      option.addEventListener('click', () => {
-        fontOptions.forEach(opt => opt.classList.remove('active'));
-        option.classList.add('active');
+    // Initialize the page
+    function init() {
+      loadAllFonts();
+      
+      const fontOptions = document.querySelectorAll('.font-option');
+      const fontPreview = document.getElementById('fontPreview');
+      const fontSamples = document.querySelectorAll('.font-sample');
+      const fontSizeSlider = document.getElementById('fontSize');
+      const sizeValue = document.getElementById('sizeValue');
+      
+      // Set initial font
+      let currentFont = 'Mangarans';
+      fontPreview.style.fontFamily = `'${currentFont}'`;
+      
+      // Font selection
+      fontOptions.forEach(option => {
         const fontName = option.getAttribute('data-font');
-        loadFont(fontName);
+        
+        // Set sample text font
+        const sample = option.querySelector('.font-sample');
+        sample.style.fontFamily = `'${fontName}'`;
+        
+        option.addEventListener('click', () => {
+          // Update active state
+          fontOptions.forEach(opt => opt.classList.remove('active'));
+          option.classList.add('active');
+          
+          // Change preview font
+          currentFont = fontName;
+          fontPreview.style.fontFamily = `'${currentFont}'`;
+        });
       });
-    });
-
-    // Initialize first font
-    loadFont('Mangarans');
-
-    // Font size control
-    const fontSizeSlider = document.getElementById('fontSize');
-    const sizeValue = document.getElementById('sizeValue');
-    
-    fontSizeSlider.addEventListener('input', () => {
-      const size = fontSizeSlider.value;
-      fontPreview.style.fontSize = size + 'pt';
-      sizeValue.textContent = size + 'pt';
-    });
+      
+      // Font size control
+      function updateFontSize() {
+        const size = fontSizeSlider.value;
+        fontPreview.style.fontSize = size + 'pt';
+        sizeValue.textContent = size + 'pt';
+      }
+      
+      fontSizeSlider.addEventListener('input', updateFontSize);
+      updateFontSize(); // Initialize size
+    }
 
     // License purchase
     function buyLicense() {
@@ -250,6 +254,9 @@
       alert(`Purchasing ${license} license for ${currentFont}`);
       // Actual purchase logic would go here
     }
+
+    // Start the application
+    init();
   </script>
 </body>
 </html>
