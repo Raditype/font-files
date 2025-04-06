@@ -2,145 +2,113 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Mangarans Font Tester</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mangarans Tester</title>
   <style>
     :root {
       --primary: #1a1a1a;
       --secondary: #e0e0e0;
       --bg: #ffffff;
     }
-
+    
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-
-    html, body, .container {
-      height: 100%;
-      width: 100%;
-      overflow: hidden !important;
-    }
-
+    
     body {
-      display: flex;
-      flex-direction: column;
-      background-color: var(--bg);
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
       color: var(--primary);
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      line-height: 1.5;
-      padding: 0;
-    }
-
-    .container {
-      display: flex;
-      flex-direction: column;
       padding: 10px;
+      line-height: 1.4;
     }
-
-    h1 {
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-      text-align: center;
-      font-weight: 500;
-      flex-shrink: 0;
-    }
-
-    .font-preview {
-      flex: 1;
-      min-height: 0;
-      margin-bottom: 10px;
-    }
-
+    
     @font-face {
       font-family: 'Mangarans-Preview';
       src: url('https://raditype.github.io/font-files/Mangarans.ttf') format('truetype');
     }
-
-    textarea {
-      width: 100%;
-      height: 100%;
-      font-family: 'Mangarans-Preview', cursive;
-      padding: 12px;
-      font-size: 24px;
-      background-color: var(--bg);
-      color: var(--primary);
-      border: 1px solid var(--secondary);
-      border-radius: 8px;
-      resize: none;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      overflow-y: auto !important;
+    
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
     }
-
-    textarea:focus {
-      outline: none;
-      border-color: var(--primary);
-    }
-
-    .controls {
-      flex-shrink: 0;
-      margin-bottom: 10px;
-    }
-
-    .slider-container {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    input[type="range"] {
-      flex-grow: 1;
-      height: 6px;
-      -webkit-appearance: none;
-      background: var(--secondary);
-      border-radius: 3px;
-    }
-
-    input[type="range"]::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      width: 18px;
-      height: 18px;
-      background: var(--primary);
-      border-radius: 50%;
-      cursor: pointer;
-    }
-
-    .size-value {
-      min-width: 40px;
+    
+    h1 {
+      font-size: 1.2rem;
       text-align: center;
-      font-family: monospace;
-    }
-
-    .license-options {
-      flex-shrink: 0;
-      display: flex;
-      gap: 10px;
-    }
-
-    select {
-      flex: 1;
-      padding: 10px;
-      border: 1px solid var(--secondary);
-      border-radius: 6px;
-    }
-
-    button {
-      padding: 10px 20px;
-      background-color: var(--primary);
-      color: var(--bg);
-      border: none;
-      border-radius: 6px;
+      margin-bottom: 12px;
       font-weight: 500;
     }
-
-    @media (max-width: 480px) {
-      .license-options {
-        flex-direction: column;
+    
+    textarea {
+      width: 100%;
+      height: 80px;
+      font-family: 'Mangarans-Preview', cursive;
+      font-size: 18px;
+      padding: 8px;
+      border: 1px solid var(--secondary);
+      border-radius: 4px;
+      resize: none;
+      margin-bottom: 8px;
+    }
+    
+    .controls {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 8px;
+      align-items: center;
+    }
+    
+    .slider-container {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    input[type="range"] {
+      flex: 1;
+      height: 4px;
+    }
+    
+    .size-value {
+      width: 40px;
+      text-align: center;
+      font-size: 0.8rem;
+    }
+    
+    .license-options {
+      display: flex;
+      gap: 8px;
+    }
+    
+    select {
+      flex: 1;
+      padding: 6px;
+      border: 1px solid var(--secondary);
+      border-radius: 4px;
+      font-size: 0.9rem;
+    }
+    
+    button {
+      padding: 6px 12px;
+      background: var(--primary);
+      color: var(--bg);
+      border: none;
+      border-radius: 4px;
+      font-size: 0.9rem;
+    }
+    
+    @media (max-width: 400px) {
+      textarea {
+        height: 60px;
+        font-size: 16px;
       }
       
-      textarea {
-        font-size: 20px;
+      .license-options {
+        flex-direction: column;
       }
     }
   </style>
@@ -149,59 +117,45 @@
   <div class="container">
     <h1>Mangarans Font Tester</h1>
     
-    <div class="font-preview">
-      <textarea id="fontPreview" placeholder="Type here..."></textarea>
-    </div>
+    <textarea id="fontPreview" placeholder="Type here..." autofocus></textarea>
     
     <div class="controls">
       <div class="slider-container">
-        <input type="range" id="fontSize" min="12" max="72" value="24">
-        <span class="size-value" id="sizeValue">24px</span>
+        <input type="range" id="fontSize" min="12" max="48" value="18">
+        <span class="size-value" id="sizeValue">18px</span>
       </div>
     </div>
     
     <div class="license-options">
       <select id="licenseSelect">
-        <option value="desktop">Desktop - $39</option>
-        <option value="webfont-standard">Webfont Standard - $59</option>
-        <option value="webfont-unlimited">Webfont Unlimited - $99</option>
+        <option value="desktop">Desktop</option>
+        <option value="webfont-standard">Web Standard</option>
+        <option value="webfont-unlimited">Web Unlimited</option>
       </select>
       <button onclick="buyLicense()">Buy</button>
     </div>
   </div>
 
   <script>
-    // Font size control
     const fontSizeSlider = document.getElementById('fontSize');
     const sizeValue = document.getElementById('sizeValue');
     const fontPreview = document.getElementById('fontPreview');
     
-    fontSizeSlider.addEventListener('input', function() {
-      const size = this.value;
+    fontSizeSlider.addEventListener('input', () => {
+      const size = fontSizeSlider.value;
       fontPreview.style.fontSize = size + 'px';
       sizeValue.textContent = size + 'px';
     });
     
-    // License purchase function
     function buyLicense() {
       const license = document.getElementById("licenseSelect").value;
-      let url = "";
-      switch (license) {
-        case "desktop":
-          url = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=XXXXXXDESKTOP";
-          break;
-        case "webfont-standard":
-          url = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=XXXXXXWEBSTANDARD";
-          break;
-        case "webfont-unlimited":
-          url = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=XXXXXXWEBUNLIMITED";
-          break;
-      }
-      if (url) window.open(url, '_blank');
+      const urls = {
+        desktop: "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=XXXXXXDESKTOP",
+        "webfont-standard": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=XXXXXXWEBSTANDARD",
+        "webfont-unlimited": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=XXXXXXWEBUNLIMITED"
+      };
+      if (urls[license]) window.open(urls[license], '_blank');
     }
-    
-    // Auto-focus textarea
-    document.getElementById('fontPreview').focus();
   </script>
 </body>
 </html>
