@@ -3,64 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Font License Menu</title>
+    <title>Minimal Font Licenses</title>
     <style>
         body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #f8f8f8;
-            color: #333;
-            line-height: 1.6;
-            padding: 20px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .license-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        
-        .license-header h1 {
-            font-size: 32px;
-            font-weight: 600;
-            margin-bottom: 10px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: white;
             color: #222;
+            line-height: 1.5;
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        h1 {
+            font-weight: 500;
+            font-size: 24px;
+            margin-bottom: 40px;
+            text-align: center;
+            letter-spacing: -0.5px;
         }
         
         .license-menu {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            max-width: 600px;
-            margin: 0 auto;
+            border-top: 1px solid #eee;
         }
         
         .license-item {
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-            overflow: hidden;
+            border-bottom: 1px solid #eee;
         }
         
         .license-title {
-            padding: 18px 25px;
-            font-size: 18px;
-            font-weight: 600;
+            padding: 22px 0;
+            font-weight: 450;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: background 0.2s;
+            transition: opacity 0.2s;
         }
         
         .license-title:hover {
-            background: #f5f5f5;
+            opacity: 0.7;
         }
         
         .license-title::after {
             content: '+';
-            font-size: 22px;
+            font-size: 20px;
+            font-weight: 300;
             transition: transform 0.3s;
+            opacity: 0.7;
         }
         
         .license-title.active::after {
@@ -68,136 +58,89 @@
         }
         
         .license-content {
-            padding: 0 25px;
+            padding: 0;
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease-out, padding 0.3s ease;
+            transition: max-height 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
         
-        .license-content.show {
-            padding: 0 25px 25px 25px;
-            max-height: 1000px;
+        .license-content-inner {
+            padding-bottom: 24px;
+            font-size: 15px;
+            color: #444;
         }
         
-        .license-content p {
-            margin-bottom: 15px;
+        .license-content-inner p {
+            margin-bottom: 12px;
         }
         
-        .license-content ul {
+        .license-content-inner ul {
             padding-left: 20px;
-            margin-bottom: 15px;
+            margin-bottom: 16px;
         }
         
-        .license-content li {
-            margin-bottom: 8px;
-        }
-        
-        @media (max-width: 600px) {
-            .license-header h1 {
-                font-size: 26px;
-            }
-            
-            .license-title {
-                padding: 15px 20px;
-                font-size: 16px;
-            }
+        .license-content-inner li {
+            margin-bottom: 6px;
         }
     </style>
 </head>
 <body>
-    <div class="license-header">
-        <h1>RADITYPE FONT LICENSES</h1>
-    </div>
+    <h1>FONT LICENSES</h1>
     
     <div class="license-menu">
         <div class="license-item">
             <div class="license-title">Desktop License</div>
             <div class="license-content">
-                <p>This license allows you to install and use the font on your personal or work computers for design purposes.</p>
-                <ul>
-                    <li>Install on up to 5 devices</li>
-                    <li>Use in print and digital designs</li>
-                    <li>Create logos and branding</li>
-                    <li>Not for web embedding or app development</li>
-                </ul>
+                <div class="license-content-inner">
+                    <p>For installation on personal computers and workstations.</p>
+                    <ul>
+                        <li>Up to 5 devices</li>
+                        <li>Print and digital media</li>
+                        <li>Logo and branding use</li>
+                    </ul>
+                </div>
             </div>
         </div>
         
         <div class="license-item">
-            <div class="license-title">Webfont Standard License</div>
+            <div class="license-title">Webfont License</div>
             <div class="license-content">
-                <p>Allows embedding the font on websites with limited pageviews.</p>
-                <ul>
-                    <li>Up to 500,000 monthly pageviews</li>
-                    <li>Single domain use</li>
-                    <li>CSS @font-face embedding</li>
-                    <li>Not for SaaS applications</li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="license-item">
-            <div class="license-title">Webfont Unlimited License</div>
-            <div class="license-content">
-                <p>Unlimited web usage across multiple domains.</p>
-                <ul>
-                    <li>Unlimited pageviews</li>
-                    <li>Up to 5 domains</li>
-                    <li>Team of up to 10 users</li>
-                    <li>Includes future updates</li>
-                </ul>
+                <div class="license-content-inner">
+                    <p>For embedding fonts on websites and digital platforms.</p>
+                    <ul>
+                        <li>Standard and unlimited options</li>
+                        <li>CSS @font-face implementation</li>
+                        <li>Domain-based restrictions</li>
+                    </ul>
+                </div>
             </div>
         </div>
         
         <div class="license-item">
             <div class="license-title">Extended License</div>
             <div class="license-content">
-                <p>For products where the font is distributed to end users.</p>
-                <ul>
-                    <li>Mobile apps and ebooks</li>
-                    <li>Software and games</li>
-                    <li>Product templates</li>
-                    <li>Up to 50,000 product units</li>
-                </ul>
+                <div class="license-content-inner">
+                    <p>For products where the font is distributed to end users.</p>
+                    <ul>
+                        <li>Mobile applications</li>
+                        <li>Digital publications</li>
+                        <li>Software and games</li>
+                    </ul>
+                </div>
             </div>
         </div>
         
         <div class="license-item">
-            <div class="license-title">Business License</div>
+            <div class="license-title">Enterprise License</div>
             <div class="license-content">
-                <p>For larger organizations and design teams.</p>
-                <ul>
-                    <li>Unlimited devices</li>
-                    <li>Team of up to 25 users</li>
-                    <li>Client work allowed</li>
-                    <li>Priority support</li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="license-item">
-            <div class="license-title">Broadcast License</div>
-            <div class="license-content">
-                <p>For use in television, film, and streaming.</p>
-                <ul>
-                    <li>Title sequences and graphics</li>
-                    <li>Unlimited broadcasts</li>
-                    <li>Worldwide distribution</li>
-                    <li>Perpetual license</li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="license-item">
-            <div class="license-title">Corporate License</div>
-            <div class="license-content">
-                <p>Enterprise-wide font usage for large companies.</p>
-                <ul>
-                    <li>Unlimited users</li>
-                    <li>Global offices</li>
-                    <li>All media types</li>
-                    <li>Dedicated account manager</li>
-                </ul>
+                <div class="license-content-inner">
+                    <p>Organization-wide usage for teams and corporations.</p>
+                    <ul>
+                        <li>Unlimited users</li>
+                        <li>Global deployment</li>
+                        <li>Dedicated support</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -206,16 +149,20 @@
         document.querySelectorAll('.license-title').forEach(title => {
             title.addEventListener('click', () => {
                 const content = title.nextElementSibling;
-                title.classList.toggle('active');
-                content.classList.toggle('show');
+                const isOpening = !content.classList.contains('active');
                 
-                // Close other open items
+                // Close all first
                 document.querySelectorAll('.license-content').forEach(item => {
-                    if (item !== content && item.classList.contains('show')) {
-                        item.classList.remove('show');
-                        item.previousElementSibling.classList.remove('active');
-                    }
+                    item.classList.remove('active');
+                    item.previousElementSibling.classList.remove('active');
                 });
+                
+                // Then open selected
+                if (isOpening) {
+                    title.classList.add('active');
+                    content.classList.add('active');
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                }
             });
         });
     </script>
