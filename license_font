@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Font License Agreement</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #000;
+        }
+        
+        h2 {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 25px 0 15px 0;
+            color: #000;
+        }
+        
+        p, li {
+            font-size: 15px;
+            margin-bottom: 15px;
+        }
+        
+        ul {
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .license-container {
+            margin-bottom: 40px;
+        }
+        
+        .license-links {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .license-link {
+            padding: 8px 15px;
+            background: #f0f0f0;
+            border-radius: 4px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .license-link.active {
+            background: #333;
+            color: white;
+        }
+        
+        .note-box {
+            background-color: #f8f8f8;
+            border-left: 4px solid #666;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        @media (max-width: 600px) {
+            body {
+                padding: 15px;
+            }
+            
+            .license-links {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="license-links">
+        <a href="#" class="license-link active">English</a>
+        <a href="#" class="license-link">日本語</a>
+    </div>
+    
+    <div class="license-container">
+        <h1>Lettersiro Font License</h1>
+        
+        <h2>1. License Grant</h2>
+        <p>Lettersiro ("the Font") is licensed, not sold, to you for use under the terms of this agreement. Upon payment, you are granted a non-exclusive, non-transferable license to use the Font.</p>
+        
+        <h2>2. Permitted Uses</h2>
+        <p>You may:</p>
+        <ul>
+            <li>Use the Font for personal and commercial projects</li>
+            <li>Install the Font on up to 5 devices</li>
+            <li>Use the Font in logos and branding</li>
+            <li>Create physical or digital products (posters, merchandise, etc.)</li>
+            <li>Use the Font in websites as web fonts</li>
+        </ul>
+        
+        <h2>3. Restrictions</h2>
+        <p>You may NOT:</p>
+        <ul>
+            <li>Redistribute or sell the Font files themselves</li>
+            <li>Modify the Font and distribute the modified version</li>
+            <li>Use the Font in apps or websites where users can extract the Font</li>
+            <li>Convert the Font to other formats for redistribution</li>
+            <li>Use the Font in products where the Font is the primary value</li>
+        </ul>
+        
+        <div class="note-box">
+            <p><strong>Note:</strong> For commercial use involving more than 5 devices or use in products distributed to end users (e.g., mobile apps), you need an extended license. Please contact us for more information.</p>
+        </div>
+        
+        <h2>4. Ownership</h2>
+        <p>The Font and all intellectual property rights remain the property of the creator. This license grants limited usage rights only.</p>
+        
+        <h2>5. Warranty</h2>
+        <p>The Font is provided "as is" without warranty. The creator is not liable for any damages resulting from its use.</p>
+        
+        <h2>6. Termination</h2>
+        <p>This agreement terminates automatically if you fail to comply with its terms.</p>
+    </div>
+</body>
+</html>
