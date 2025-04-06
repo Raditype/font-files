@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Raditype Font Collection</title>
+  <title>Raditype Studio - Mangarans Font Family</title>
   <style>
     :root {
       --primary: #1a1a1a;
@@ -25,18 +25,47 @@
       padding: 20px;
       max-width: 1200px;
       margin: 0 auto;
+      line-height: 1.6;
     }
 
-    h1 {
+    header {
       text-align: center;
       margin-bottom: 30px;
     }
 
-    .font-selector {
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+
+    .features {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
       margin-bottom: 30px;
+      padding: 20px;
+      background: #f8f9fa;
+      border-radius: 8px;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+    }
+
+    .feature-item input[type="checkbox"] {
+      margin-right: 10px;
+    }
+
+    .font-preview-container {
+      margin-bottom: 40px;
+    }
+
+    .font-selector {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 15px;
+      margin-bottom: 20px;
     }
 
     .font-option {
@@ -56,10 +85,6 @@
       background-color: #f8fafc;
     }
 
-    .font-preview-container {
-      margin-bottom: 30px;
-    }
-
     textarea {
       width: 100%;
       height: 200px;
@@ -74,6 +99,7 @@
 
     .controls {
       display: flex;
+      flex-wrap: wrap;
       gap: 15px;
       align-items: center;
       margin-bottom: 20px;
@@ -81,16 +107,19 @@
 
     .size-slider {
       flex-grow: 1;
+      min-width: 200px;
     }
 
     .license-options {
       display: flex;
+      flex-wrap: wrap;
       gap: 15px;
     }
 
     select, button {
       padding: 12px;
       border-radius: 6px;
+      min-width: 200px;
     }
 
     button {
@@ -100,46 +129,77 @@
       font-weight: 600;
       cursor: pointer;
       padding: 12px 24px;
+      transition: background 0.2s;
+    }
+
+    button:hover {
+      background: #1e4bb6;
     }
 
     @media (max-width: 768px) {
       .font-selector {
         grid-template-columns: 1fr;
       }
+      
+      h1 {
+        font-size: 1.8rem;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Raditype Font Collection</h1>
-  
-  <div class="font-selector">
-    <div class="font-option active" data-font="Mangarans">
-      <h3>Mangarans</h3>
-      <p class="font-sample">Sample Text - Lorem</p>
+  <header>
+    <h1>Raditype Studio</h1>
+    <p>Mangarans Font Family</p>
+  </header>
+
+  <div class="features">
+    <div class="feature-item">
+      <input type="checkbox" id="feature1" checked disabled>
+      <label for="feature1">Font Family: Includes 6 versatile styles</label>
     </div>
-    <div class="font-option" data-font="FontTwo">
-      <h3>Mangarans II</h3>
-      <p class="font-sample">Sample Text - Lorem</p>
+    <div class="feature-item">
+      <input type="checkbox" id="feature2" checked disabled>
+      <label for="feature2">Perfect For: Posters, headlines, logos</label>
     </div>
-    <div class="font-option" data-font="FontThree">
-      <h3>Mangarans III</h3>
-      <p class="font-sample">Sample Text - Lorem</p>
+    <div class="feature-item">
+      <input type="checkbox" id="feature3" checked disabled>
+      <label for="feature3">Style: Blackletter / Gothic / Display</label>
     </div>
-    <div class="font-option" data-font="FontFour">
-      <h3>Mangarans IV</h3>
-      <p class="font-sample">Sample Text - Lorem</p>
-    </div>
-    <div class="font-option" data-font="FontFive">
-      <h3>Mangarans V</h3>
-      <p class="font-sample">Sample Text - Lorem</p>
-    </div>
-    <div class="font-option" data-font="FontSix">
-      <h3>Mangarans VI</h3>
-      <p class="font-sample">Sample Text - Lorem</p>
+    <div class="feature-item">
+      <input type="checkbox" id="feature4" checked disabled>
+      <label for="feature4">Format: OTF / TTF / WOFF</label>
     </div>
   </div>
 
   <div class="font-preview-container">
+    <div class="font-selector">
+      <div class="font-option active" data-font="Mangarans">
+        <h3>Mangarans</h3>
+        <p class="font-sample">Sample Text - 123</p>
+      </div>
+      <div class="font-option" data-font="MangaransII">
+        <h3>Mangarans II</h3>
+        <p class="font-sample">Sample Text - 123</p>
+      </div>
+      <div class="font-option" data-font="MangaransIII">
+        <h3>Mangarans III</h3>
+        <p class="font-sample">Sample Text - 123</p>
+      </div>
+      <div class="font-option" data-font="MangaransIV">
+        <h3>Mangarans IV</h3>
+        <p class="font-sample">Sample Text - 123</p>
+      </div>
+      <div class="font-option" data-font="MangaransV">
+        <h3>Mangarans V</h3>
+        <p class="font-sample">Sample Text - 123</p>
+      </div>
+      <div class="font-option" data-font="MangaransVI">
+        <h3>Mangarans VI</h3>
+        <p class="font-sample">Sample Text - 123</p>
+      </div>
+    </div>
+
     <textarea id="fontPreview" placeholder="Type here to preview the selected font..."></textarea>
     
     <div class="controls">
@@ -153,36 +213,36 @@
         <option value="webfont-standard">Webfont Standard - $59</option>
         <option value="webfont-unlimited">Webfont Unlimited - $99</option>
       </select>
-      <button onclick="buyLicense()">Purchase</button>
+      <button onclick="buyLicense()">Purchase License</button>
     </div>
   </div>
 
   <script>
-    // Font configuration - fixed syntax and added missing fonts
+    // Font configuration
     const fontConfig = [
       {
         name: 'Mangarans',
         url: 'https://raditype.github.io/font-files/Mangarans.ttf'
       },
       {
-        name: 'FontTwo',
-        url: 'https://raditype.github.io/font-files/Mangarans%20II.ttf'
+        name: 'MangaransII',
+        url: 'https://raditype.github.io/font-files/MangaransII.ttf'
       },
       {
-        name: 'FontThree',
-        url: 'https://raditype.github.io/font-files/Mangarans%20III.ttf'
+        name: 'MangaransIII',
+        url: 'https://raditype.github.io/font-files/MangaransIII.ttf'
       },
       {
-        name: 'FontFour',
-        url: 'https://raditype.github.io/font-files/Mangarans%20IV.ttf'
+        name: 'MangaransIV',
+        url: 'https://raditype.github.io/font-files/MangaransIV.ttf'
       },
       {
-        name: 'FontFive',
-        url: 'https://raditype.github.io/font-files/Mangarans%20V.ttf'
+        name: 'MangaransV',
+        url: 'https://raditype.github.io/font-files/MangaransV.ttf'
       },
       {
-        name: 'FontSix',
-        url: 'https://raditype.github.io/font-files/Mangarans%20VI.ttf'
+        name: 'MangaransVI',
+        url: 'https://raditype.github.io/font-files/MangaransVI.ttf'
       }
     ];
 
@@ -223,9 +283,7 @@
         
         // Set sample text font
         const sample = option.querySelector('.font-sample');
-        if (sample) {
-          sample.style.fontFamily = `'${fontName}'`;
-        }
+        sample.style.fontFamily = `'${fontName}'`;
         
         option.addEventListener('click', () => {
           // Update active state
