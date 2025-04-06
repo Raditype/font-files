@@ -31,11 +31,10 @@
       color: var(--primary);
       display: flex;
       flex-direction: column;
-      padding: 15px;
+      padding: 20px;
       touch-action: pan-y;
     }
 
-    /* Font dari GitHub */
     @font-face {
       font-family: 'Mangarans-Preview';
       src: url('https://raditype.github.io/font-files/Mangarans.ttf') format('truetype');
@@ -51,35 +50,95 @@
       height: 100%;
     }
 
+    h1 {
+      font-size: 1.3rem;
+      text-align: center;
+      margin-bottom: 15px;
+      font-weight: 500;
+    }
+
     textarea {
       width: 100%;
       flex-grow: 1;
       font-family: 'Mangarans-Preview', cursive;
-      font-size: 24px;
+      font-size: 24pt; /* Using pt units */
       padding: 15px;
       border: 1px solid var(--secondary);
       border-radius: 8px;
       resize: none;
       margin-bottom: 15px;
+      line-height: 1.3;
       overflow-y: auto !important;
       -webkit-overflow-scrolling: touch;
     }
 
-    /* ... (CSS lainnya tetap sama seperti sebelumnya) ... */
+    .controls {
+      margin-bottom: 15px;
+    }
 
+    .slider-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    input[type="range"] {
+      flex: 1;
+      height: 4px;
+    }
+
+    .size-value {
+      width: 50px;
+      text-align: center;
+      font-family: monospace;
+      font-size: 0.9rem;
+    }
+
+    .license-options {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+    }
+
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid var(--secondary);
+      border-radius: 6px;
+      appearance: none;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: var(--primary);
+      color: var(--bg);
+      border: none;
+      border-radius: 6px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 600px) {
+      .license-options {
+        grid-template-columns: 1fr;
+      }
+      
+      body {
+        padding: 15px;
+      }
+    }
   </style>
 </head>
 <body>
-  <!-- Konten tetap sama -->
   <div class="container">
-    <h1>Mangarans Font Tester</h1>
+    <h1>Mangarans Font Preview</h1>
     
-    <textarea id="fontPreview" placeholder="Type here..." autofocus></textarea>
+    <textarea id="fontPreview" placeholder="Type here to preview..." autofocus></textarea>
     
     <div class="controls">
       <div class="slider-container">
-        <input type="range" id="fontSize" min="12" max="72" value="24">
-        <span class="size-value" id="sizeValue">24px</span>
+        <input type="range" id="fontSize" min="12" max="240" value="24">
+        <span class="size-value" id="sizeValue">24pt</span>
       </div>
     </div>
     
@@ -93,22 +152,23 @@
         <option value="broadcast">Broadcast/Movie/Film - $1899</option>
         <option value="corporate">Worldwide Corporate - $3499</option>
       </select>
-      <button onclick="buyLicense()">Purchase License</button>
+      <button onclick="buyLicense()">Buy</button>
     </div>
   </div>
 
   <script>
-    // Script JavaScript tetap sama
+    // Font size control (in pt units)
     const fontSizeSlider = document.getElementById('fontSize');
     const sizeValue = document.getElementById('sizeValue');
     const fontPreview = document.getElementById('fontPreview');
     
     fontSizeSlider.addEventListener('input', () => {
       const size = fontSizeSlider.value;
-      fontPreview.style.fontSize = size + 'px';
-      sizeValue.textContent = size + 'px';
+      fontPreview.style.fontSize = size + 'pt';
+      sizeValue.textContent = size + 'pt';
     });
 
+    // License purchase
     function buyLicense() {
       const license = document.getElementById("licenseSelect").value;
       const urls = {
@@ -123,9 +183,9 @@
       if (urls[license]) window.open(urls[license], '_blank');
     }
 
-    // Lock scroll untuk mobile
+    // Prevent body scroll (mobile)
     document.addEventListener('touchmove', (e) => {
-      if (!e.target.matches('textarea, input[type="range"], select, button')) {
+      if (!['TEXTAREA', 'INPUT', 'SELECT', 'BUTTON'].includes(e.target.tagName)) {
         e.preventDefault();
       }
     }, { passive: false });
