@@ -110,7 +110,7 @@
   </style>
 </head>
 <body>
-  <h1>Raditype Font Collection</h1>
+  <h1>Mangarans Font Collection</h1>
   
   <div class="font-selector">
     <div class="font-option active" data-font="Mangarans">
@@ -119,23 +119,23 @@
     </div>
     <div class="font-option" data-font="FontTwo">
       <h3>Mangarans II</h3>
-      <p style="font-family: 'FontTwo'">Sample Text - Lorem</p>
+      <p class="font-sample">Sample Text - Lorem</p>
     </div>
     <div class="font-option" data-font="FontThree">
       <h3>Mangarans III</h3>
-      <p style="font-family: 'FontThree'">Sample Text - Lorem</p>
+      <p class="font-sample">Sample Text - Lorem</p>
     </div>
-    <div class="font-option" data-font="FontThree">
+    <div class="font-option" data-font="FontFour">
       <h3>Mangarans IV</h3>
-      <p style="font-family: 'FontFour'">Sample Text - Lorem</p>
+      <p class="font-sample">Sample Text - Lorem</p>
     </div>
-    <div class="font-option" data-font="FontThree">
+    <div class="font-option" data-font="FontFive">
       <h3>Mangarans V</h3>
-      <p style="font-family: 'FontFive'">Sample Text - Lorem</p>
+      <p class="font-sample">Sample Text - Lorem</p>
     </div>
-    <div class="font-option" data-font="FontThree">
+    <div class="font-option" data-font="FontSix">
       <h3>Mangarans VI</h3>
-      <p style="font-family: 'FontSix'">Sample Text - Lorem</p>
+      <p class="font-sample">Sample Text - Lorem</p>
     </div>
   </div>
 
@@ -158,7 +158,7 @@
   </div>
 
   <script>
-    // Font configuration
+    // Font configuration - fixed syntax and added missing fonts
     const fontConfig = [
       {
         name: 'Mangarans',
@@ -166,23 +166,23 @@
       },
       {
         name: 'FontTwo',
-        url: 'https://raditype.github.io/font-files/Mangarans II.ttf'
+        url: 'https://raditype.github.io/font-files/Mangarans%20II.ttf'
       },
       {
         name: 'FontThree',
-        url: 'https://raditype.github.io/font-files/Mangarans III.ttf'
-      }
-       {
+        url: 'https://raditype.github.io/font-files/Mangarans%20III.ttf'
+      },
+      {
         name: 'FontFour',
-        url: 'https://raditype.github.io/font-files/Mangarans IV.ttf'
-      }
-    {
+        url: 'https://raditype.github.io/font-files/Mangarans%20IV.ttf'
+      },
+      {
         name: 'FontFive',
-        url: 'https://raditype.github.io/font-files/Mangarans V.ttf'
-      }
-    {
+        url: 'https://raditype.github.io/font-files/Mangarans%20V.ttf'
+      },
+      {
         name: 'FontSix',
-        url: 'https://raditype.github.io/font-files/Mangarans VI.ttf'
+        url: 'https://raditype.github.io/font-files/Mangarans%20VI.ttf'
       }
     ];
 
@@ -223,7 +223,9 @@
         
         // Set sample text font
         const sample = option.querySelector('.font-sample');
-        sample.style.fontFamily = `'${fontName}'`;
+        if (sample) {
+          sample.style.fontFamily = `'${fontName}'`;
+        }
         
         option.addEventListener('click', () => {
           // Update active state
@@ -256,7 +258,7 @@
     }
 
     // Start the application
-    init();
+    document.addEventListener('DOMContentLoaded', init);
   </script>
 </body>
 </html>
