@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Try Mangarans Font</title>
+  <style>
+    @font-face {
+      font-family: 'Mangarans';
+      src: url('https://raditype.github.io/font-files/Mangarans.ttf') format('truetype');
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #1a1a1a;
+      color: #ffffff;
+      font-family: 'Mangarans', cursive;
+      text-align: center;
+    }
+
+    body {
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    textarea {
+      width: 100%;
+      max-width: 900px;
+      height: 120px;
+      font-family: 'Mangarans', cursive;
+      font-size: 32px;
+      padding: 16px;
+      background-color: #2b2b2b;
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      resize: none;
+      box-sizing: border-box;
+    }
+
+    .license-options {
+      margin-top: 30px;
+    }
+
+    .license-options h2 {
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+
+    select, button {
+      font-size: 18px;
+      padding: 10px 16px;
+      border-radius: 6px;
+      border: none;
+      margin: 10px;
+    }
+
+    select {
+      background-color: #2b2b2b;
+      color: #ffffff;
+    }
+
+    button {
+      background-color: #ffffff;
+      color: #1a1a1a;
+      cursor: pointer;
+    }
+  </style>
+  <script>
+    function buyLicense() {
+      const license = document.getElementById("licenseSelect").value;
+      let url = "";
+      switch (license) {
+        case "desktop":
+          url = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=XXXXXXDESKTOP";
+          break;
+        case "webfont-standard":
+          url = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=XXXXXXWEBSTANDARD";
+          break;
+        case "webfont-unlimited":
+          url = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=XXXXXXWEBUNLIMITED";
+          break;
+        case "extended":
+          url = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=XXXXXXEXTENDED";
+          break;
+        case "business":
+          url = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=XXXXXXBUSINESS";
+          break;
+        case "broadcast":
+          url = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=XXXXXXBROADCAST";
+          break;
+        case "corporate":
+          url = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=XXXXXXCORPORATE";
+          break;
+      }
+      if (url) window.open(url, '_blank');
+    }
+  </script>
+</head>
+<body>
+  <h1>Try Mangarans Font</h1>
+  <textarea placeholder="Type here..."></textarea>
+
+  <div class="license-options">
+    <h2>Choose Your License:</h2>
+    <select id="licenseSelect">
+      <option value="desktop">Desktop - $39</option>
+      <option value="webfont-standard">Webfont Standard - $59</option>
+      <option value="webfont-unlimited">Webfont Unlimited - $99</option>
+      <option value="extended">Extended & Trademark Logo - $399</option>
+      <option value="business">Business - $899</option>
+      <option value="broadcast">Broadcast/Movie/Film - $1899</option>
+      <option value="corporate">Worldwide Corporate - $3499</option>
+    </select>
+    <br>
+    <button onclick="buyLicense()">Buy Now</button>
+  </div>
+</body>
+</html>
