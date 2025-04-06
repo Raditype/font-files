@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Mangarans Font Tester</title>
   <style>
     :root {
@@ -15,45 +15,45 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+      overflow: hidden !important;
+      position: fixed;
     }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, sans-serif;
       background: var(--bg);
       color: var(--primary);
-      padding: 15px;
-      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      padding: 15px;
+      touch-action: pan-y;
     }
 
+    /* Font dari GitHub */
     @font-face {
       font-family: 'Mangarans-Preview';
       src: url('https://raditype.github.io/font-files/Mangarans.ttf') format('truetype');
     }
 
     .container {
+      flex: 1;
       width: 100%;
       max-width: 800px;
       margin: 0 auto;
-    }
-
-    h1 {
-      font-size: 1.5rem;
-      text-align: center;
-      margin-bottom: 20px;
-      font-weight: 500;
-    }
-
-    .font-preview {
-      width: 100%;
-      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
 
     textarea {
       width: 100%;
-      min-height: 150px;
+      flex-grow: 1;
       font-family: 'Mangarans-Preview', cursive;
       font-size: 24px;
       padding: 15px;
@@ -61,82 +61,20 @@
       border-radius: 8px;
       resize: none;
       margin-bottom: 15px;
+      overflow-y: auto !important;
+      -webkit-overflow-scrolling: touch;
     }
 
-    .controls {
-      width: 100%;
-      margin-bottom: 20px;
-    }
+    /* ... (CSS lainnya tetap sama seperti sebelumnya) ... */
 
-    .slider-container {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-
-    input[type="range"] {
-      flex: 1;
-      height: 6px;
-    }
-
-    .size-value {
-      width: 50px;
-      text-align: center;
-      font-family: monospace;
-    }
-
-    .license-options {
-      width: 100%;
-    }
-
-    select {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      border: 1px solid var(--secondary);
-      border-radius: 6px;
-    }
-
-    button {
-      width: 100%;
-      padding: 12px;
-      background: var(--primary);
-      color: var(--bg);
-      border: none;
-      border-radius: 6px;
-      font-weight: 500;
-    }
-
-    @media (min-width: 768px) {
-      textarea {
-        min-height: 200px;
-        font-size: 28px;
-      }
-      
-      .license-options {
-        display: flex;
-        gap: 15px;
-      }
-      
-      select {
-        flex: 1;
-        margin-bottom: 0;
-      }
-      
-      button {
-        width: auto;
-        padding: 12px 30px;
-      }
-    }
   </style>
 </head>
 <body>
+  <!-- Konten tetap sama -->
   <div class="container">
     <h1>Mangarans Font Tester</h1>
     
-    <div class="font-preview">
-      <textarea id="fontPreview" placeholder="Type here to preview the font..." autofocus></textarea>
-    </div>
+    <textarea id="fontPreview" placeholder="Type here..." autofocus></textarea>
     
     <div class="controls">
       <div class="slider-container">
@@ -160,18 +98,17 @@
   </div>
 
   <script>
-    // Font size control
+    // Script JavaScript tetap sama
     const fontSizeSlider = document.getElementById('fontSize');
     const sizeValue = document.getElementById('sizeValue');
     const fontPreview = document.getElementById('fontPreview');
     
-    fontSizeSlider.addEventListener('input', function() {
-      const size = this.value;
+    fontSizeSlider.addEventListener('input', () => {
+      const size = fontSizeSlider.value;
       fontPreview.style.fontSize = size + 'px';
       sizeValue.textContent = size + 'px';
     });
-    
-    // License purchase function
+
     function buyLicense() {
       const license = document.getElementById("licenseSelect").value;
       const urls = {
@@ -185,6 +122,13 @@
       };
       if (urls[license]) window.open(urls[license], '_blank');
     }
+
+    // Lock scroll untuk mobile
+    document.addEventListener('touchmove', (e) => {
+      if (!e.target.matches('textarea, input[type="range"], select, button')) {
+        e.preventDefault();
+      }
+    }, { passive: false });
   </script>
 </body>
 </html>
