@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Mangarans Font Tester</title>
+  <title>Raditype Studio</title>
   <style>
     :root {
       --primary: #1a1a1a;
       --secondary: #e0e0e0;
       --bg: #ffffff;
+      --accent: #2563eb; /* New accent color for purchase button */
     }
 
     * {
@@ -51,10 +52,10 @@
     }
 
     h1 {
-      font-size: 1.3rem;
-      text-align: center; /* Center the heading */
-      margin: 0 auto 15px auto; /* Centered with margin */
-      font-weight: 500;
+      font-size: 1.5rem;
+      text-align: center;
+      margin: 0 auto 20px auto;
+      font-weight: 600;
       width: 100%;
     }
 
@@ -63,24 +64,95 @@
       flex-grow: 1;
       font-family: 'Mangarans-Preview', cursive;
       font-size: 24pt;
-      padding: 15px;
+      padding: 20px;
       border: 1px solid var(--secondary);
       border-radius: 8px;
       resize: none;
-      margin-bottom: 15px;
-      line-height: 1.3;
+      margin-bottom: 20px;
+      line-height: 1.4;
       overflow-y: auto !important;
       -webkit-overflow-scrolling: touch;
     }
 
-    /* ... (rest of your existing CSS remains exactly the same) ... */
+    .controls {
+      margin-bottom: 20px;
+      width: 100%; /* Full width slider */
+    }
+
+    .slider-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      width: 100%; /* Full width */
+    }
+
+    input[type="range"] {
+      flex: 1;
+      height: 6px;
+      width: 100%; /* Full width */
+    }
+
+    .size-value {
+      min-width: 60px;
+      text-align: center;
+      font-family: monospace;
+      font-size: 0.95rem;
+    }
+
+    .license-options {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 15px;
+      align-items: center;
+    }
+
+    select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--secondary);
+      border-radius: 6px;
+      appearance: none;
+      background-color: var(--bg);
+      font-size: 0.95rem;
+    }
+
+    button {
+      padding: 12px 24px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 600px) {
+      .license-options {
+        grid-template-columns: 1fr;
+      }
+      
+      body {
+        padding: 15px;
+      }
+      
+      button {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Mangarans Font Preview</h1> <!-- This is now centered -->
+    <h1>Raditype Studio</h1>
     
-    <!-- Rest of your HTML remains exactly the same -->
     <textarea id="fontPreview" placeholder="Type here to preview..." autofocus></textarea>
     
     <div class="controls">
@@ -100,11 +172,10 @@
         <option value="broadcast">Broadcast/Movie/Film - $1899</option>
         <option value="corporate">Worldwide Corporate - $3499</option>
       </select>
-      <button onclick="buyLicense()">Buy</button>
+      <button onclick="buyLicense()">Purchase</button>
     </div>
   </div>
 
-  <!-- Your JavaScript remains exactly the same -->
   <script>
     const fontSizeSlider = document.getElementById('fontSize');
     const sizeValue = document.getElementById('sizeValue');
