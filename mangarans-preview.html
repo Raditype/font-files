@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mangarans Tester</title>
+  <title>Mangarans Font Tester</title>
   <style>
     :root {
       --primary: #1a1a1a;
@@ -128,11 +128,15 @@
     
     <div class="license-options">
       <select id="licenseSelect">
-        <option value="desktop">Desktop</option>
-        <option value="webfont-standard">Web Standard</option>
-        <option value="webfont-unlimited">Web Unlimited</option>
+        <option value="desktop">Desktop - $39</option>
+        <option value="webfont-standard">Webfont Standard - $59</option>
+        <option value="webfont-unlimited">Webfont Unlimited - $99</option>
+        <option value="extended">Extended & Trademark Logo - $399</option>
+        <option value="business">Business - $899</option>
+        <option value="broadcast">Broadcast/Movie/Film - $1899</option>
+        <option value="corporate">Worldwide Corporate - $3499</option>
       </select>
-      <button onclick="buyLicense()">Buy</button>
+      <button onclick="buyLicense()">Buy Now</button>
     </div>
   </div>
 
@@ -152,7 +156,11 @@
       const urls = {
         desktop: "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=XXXXXXDESKTOP",
         "webfont-standard": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=XXXXXXWEBSTANDARD",
-        "webfont-unlimited": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=XXXXXXWEBUNLIMITED"
+        "webfont-unlimited": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=XXXXXXWEBUNLIMITED",
+        "extended": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=XXXXXXEXTENDED",
+        "business": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=XXXXXXBUSINESS",
+        "broadcast": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=XXXXXXBROADCAST",
+        "corporate": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=XXXXXXCORPORATE"
       };
       if (urls[license]) window.open(urls[license], '_blank');
     }
